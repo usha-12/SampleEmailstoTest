@@ -7,22 +7,20 @@ public class EmailValidation {
     public static void main(String[] args) {
         System.out.println("Welcome to Regular Expressions program to validate Email IDs!\\n");
         EmailValidation check = new EmailValidation();
-
-        String email = "abc@gmail";
-        String email1 = "abc@";
-        String email2 = "1abc@bridgelab";
+        String email = "abc@gmail.com";
+        String email1 = "abc@google.COM";
+        String email2 = "1abc@bridgelab.co";
+        String email3 = "abc@bridgelab.commerce";
         check.validateEmail(email);
         check.validateEmail(email1);
         check.validateEmail(email2);
+        check.validateEmail(email3);
     }
 
     public void validateEmail(String input) {
-
-        String email = "^[0-9a-zA-Z]*[@][a-zA-Z]+$";
-
+        String email = "^[0-9a-zA-Z]*[@][a-zA-Z]+[.][a-z]{2,4}$";
         Pattern pattern = Pattern.compile(email);
         Matcher match = pattern.matcher(input);
-
         printResult(match.matches(), input);
     }
 
